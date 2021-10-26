@@ -51,7 +51,7 @@ We created a inheritance tree that starts with Command.h. Out of it we created c
 
 We used Git for this project
 
-https://github.com/DorinDomin/-Flight-Simulator--Milestone-1
+https://github.com/DorinDomin/Flight-Simulator--Milestone-1
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
