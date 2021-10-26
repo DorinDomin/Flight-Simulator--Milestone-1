@@ -1,3 +1,7 @@
+ <p align="center">
+ <img src="https://user-images.githubusercontent.com/58748407/138865062-296148ad-4b85-41eb-9b43-a4dc9565690d.png" width="120" height="120">
+</p>
+
 # Flight Simulator- Interpreter-Ex3
 In this exercise we are wrote an interpreter between a text file ,with lines in a coding language given to us in the assignment instructions, and commands to the plane in the flight simulator. Our project is able to read the file, line by line, interpret them accordingly, and send the desired commands to the plane in the simulator (FlightGear). Furthermore, the simulator will also send data in the form of values of specific fields defined in generic_small.xml. 
 
@@ -47,7 +51,7 @@ We created a inheritance tree that starts with Command.h. Out of it we created c
 
 We used Git for this project
 
-https://github.com/NetanelTamir/Ex3.git
+https://github.com/DorinDomin/-Flight-Simulator--Milestone-1
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
