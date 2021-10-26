@@ -2,7 +2,7 @@
  <img src="https://user-images.githubusercontent.com/58748407/138865062-296148ad-4b85-41eb-9b43-a4dc9565690d.png" width="120" height="120">
 </p>
 
-# Flight Simulator- Interpreter-Ex3
+# Flight Simulator- Interpreter
 In this exercise we are wrote an interpreter between a text file ,with lines in a coding language given to us in the assignment instructions, and commands to the plane in the flight simulator. Our project is able to read the file, line by line, interpret them accordingly, and send the desired commands to the plane in the simulator (FlightGear). Furthermore, the simulator will also send data in the form of values of specific fields defined in generic_small.xml. 
 
 ## Installation
