@@ -1,34 +1,57 @@
- <p align="center">
- <img src="https://user-images.githubusercontent.com/58748407/138861103-662cd857-a202-440f-aac0-4947f771d077.png" width="120" height="120">
-</p>
+# Flight Simulator- Interpreter-Ex3
+In this exercise we are wrote an interpreter between a text file ,with lines in a coding language given to us in the assignment instructions, and commands to the plane in the flight simulator. Our project is able to read the file, line by line, interpret them accordingly, and send the desired commands to the plane in the simulator (FlightGear). Furthermore, the simulator will also send data in the form of values of specific fields defined in generic_small.xml. 
 
-# Flight-Simulator--Milestone-1
+## Installation
 
-#### Creators: 
-##### Dorin Domin
-##### Netanel Tamir
+First you need to install FlightGear and define in the advanced settings 
 
-#####  [our GitHub](https://github.com/DorinDomin/-Flight-Simulator--Milestone-1)
+```
+--generic=socket,out,10,127.0.0.1,5400,tcp,generic_small   
+--telnet=socket,in,10,127.0.0.1,5402,tcp
+```
+Then you need to add the generic_small.xml file to the protocol folder inside of the flightgear path on your computer.
 
-### **Basic information**
-* The purpose of this extercise- to create code that allows remote control of an aircraft.
-* Links we used for this project:
-  - [FlightGear simulator](https://www.flightgear.org/)
-  - The two lines we inserted the flight gear: "--telnet=socket,in,10,127.0.0.1,5402,tcp" "--generic=socket,out,10,127.0.0.1,5400,tcp,generic_small"
-* Files we used for this project:
-  - Fly.txt
-  - Generic_small.xml
+Finally you need to add the fly.txt file to the location you plan on running the project from.
+## Usage
 
-### **How Does It Work?**
-Our program receives a file and breaks it into parts using the lexer function. We checked which of the strings were commands, and created a map that holds commands as the key, and a value that is a command variable from Of the right type.
+In order to use the project, you need to do the following steps:
 
-* For example: we inserted the command "open data server" into the map, with a variable "OpenServerCommand" as the value.
+First, run the following commands in the terminal (first cd to the right path)
+```
+g++ -std=c++14 *.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o a.out -pthread
 
-After inserting the map with all the right commands, we started to execute each commnad by turn using the parser function. For the server and the client, we opened two different threads that runs simultaneously, and two different sockets. Next, the parser executed all of the variables. For each one, we check the direction of the arrow, and accordingly changes the values in the maps. We also payed attention to the loops in the file, and made a command variable that is responsible to take care of such cases.
+./a.out fly.txt
+```
 
-Through the whole running of the programm, we received values from the simulator (using the server socket), and sent value to the simulator (using the client socket). That way, the connection stays open through the whole run.
+After that you can start FlightGear. The plane will now fly according to the instructions in the text file (fly.txt).
 
-After wer'e done with the file, the programm prints "done" and we can close the sockets, and the threads.
+## How it works:
+
+### The Lexer
+
+The lexer can be found as a function inside main.cpp
+
+It's purpose is to read the given text fiile line by line and tokenize it's contents
+
+### The Parser
+
+The parser can be found in the file by the same name.
+
+It's purpose is to take the output of the lexer and form commands out of the said output. It works by looking for key words that indicate the start or end of a line. (We used '$' to indicate the end of a line in the text file)
+
+### The Commands
+
+We created a inheritance tree that starts with Command.h. Out of it we created classes for Opening the server, Connecting the client, Var commands, Print,Sleep, If ,and While Commands. All of which are key words in the coding language assigned to us and indicate a logic which we implement in the relevent classes.
+
+## Version Control
+
+We used Git for this project
+
+https://github.com/NetanelTamir/Ex3.git
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
-
+## Authors
+Dorin Domin, Netanel Tamir
